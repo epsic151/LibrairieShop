@@ -2,7 +2,6 @@
     //Security for views and models
     define('INCLUDE_CHECK', true);
     
-    
     //Processing
         //Models requirements
         require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_book_manager.php');
@@ -11,6 +10,7 @@
         //Select all products from DB
         $books = $BookManager -> select();
         $HTMLlayout = null;
+        $HTMLlayout_admin = null;
         if (is_array($books)) {
             foreach ($books as $book) {
                 //Price processing add .- if cents are null
@@ -18,43 +18,46 @@
                     $price = $book[7];
                 else 
                     $price = $book[7].'.-';
+              
+                //Layout for admin
+                $HTMLlayout_admin .= "<tr>
+                    <td><img src=\"../images/books/$book[8]\" style=\"max-width: 180px;\" /></td>
+                    <td>".htmlentities($book[1])."</td>
+                    <td>".htmlentities($book[11])."</td>
+                    <td>".htmlentities($book[2])."</td>
+                    <td>".htmlentities($book[6])."</td>
+                    <td>".htmlentities($book[5])." ".htmlentities($book[4])."</td>
+                    <td>CHF ".htmlentities($price)."</td>
+                    <td>".htmlentities($book[9])."</td>
+                    <td>".htmlentities($book[10])." unités en stock</td>
+                    <td>
+                        <button class=\"btn\" onclick=\"add(".$book[0].")\"><i class=\"fa fa-shopping-cart\"></i></button>
+                        <a href=\"modif_book.php?book=".$book[0]."\"><button class=\"admin-menu btn\"><i class=\"fa fa-edit\"></i></button></a>
+                        <a href=\"view_book.php?book=".$book[0]."\"><button class=\"user-menu btn\"><i class=\"fa fa-eye\"></i></button></a>
+                    </td>
+                </tr>\n\r";
 
-                /*$HTMLlayout .= "<tr>
-                    <td><img src=\"https://github.com/epsic151/LibrairieShop/blob/master/view/dist/theme/img/book.jpeg?raw=true\" style=\"max-width: 180px;\" /></td>
-                    <td>$book[1]</td>
-                    <td>$book[11]</td>
-                    <td>$book[2]</td>
-                    <td>$book[6]</td>
-                    <td>$book[5] $book[4]</td>
-                    <td>CHF $price</td>
-                    <td>$book[9]</td>
-                    <td>$book[10] unités en stock</td>
-                    <td><a href=\"./cart.php?action=0&id=$book[0]\"><i class=\"fa fa-shopping-cart\"></i></a></td>
-                </tr>\n\r";*/
-                
+                //Layout for clients
                 $HTMLlayout .= "<tr>
                     <td><img src=\"$book[8]\" style=\"max-width: 180px;\" /></td>
-                    <td>$book[1]</td>
-                    <td>$book[11]</td>
-                    <td>$book[2]</td>
-                    <td>$book[6]</td>
-                    <td>$book[5] $book[4]</td>
-                    <td>CHF $price</td>
-                    <td>$book[9]</td>
-                    <td>$book[10] unités en stock</td>
-                    <td><button onclick=\"add(".$book[0].")\"><i class=\"fa fa-shopping-cart\"></i></button></td>
+                    <td>".htmlentities($book[1])."</td>
+                    <td>".htmlentities($book[11])."</td>
+                    <td>".htmlentities($book[2])."</td>
+                    <td>".htmlentities($book[6])."</td>
+                    <td>".htmlentities($book[5])." ".htmlentities($book[4])."</td>
+                    <td>CHF ".htmlentities($price)."</td>
+                    <td>".htmlentities($book[9])."</td>
+                    <td>".htmlentities($book[10])." unités en stock</td>
+                    <td>
+                        <button class=\"btn\" onclick=\"add(".$book[0].")\"><i class=\"fa fa-shopping-cart\"></i></button>
+                        <a href=\"view_book.php?book=".$book[0]."\"><button class=\"user-menu btn\"><i class=\"fa fa-eye\"></i></button></a>
+                    </td>
                 </tr>\n\r";
             }
         } else
             echo 'Une erreur est survenue avec la base de données!';
 
     //.end Processing
-    
-    //Open the session
-    //require_once ($_SERVER['DOCUMENT_ROOT'] . "/../_hroot/session.php");
-    
-    //Check if session is opened
-    //require_once ($_SERVER['DOCUMENT_ROOT'] . "/../_hroot/check_session.php");
 
     //HTML dynamic meta data
     $__title = 'Livres';

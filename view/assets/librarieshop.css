@@ -1,0 +1,26 @@
+.welcome-message {
+	color: black;
+	font-weight: bold;
+}
+
+.admin-menu {
+	color: darkred;
+	/*font-weight: bold;*/
+}
+
+.user-menu {
+	color: black;
+}
+
+.admin-book-img {
+	border: 3px solid black;
+	max-height: 150px;
+	max-width: 200px;
+}
+
+.table tbody>tr>td {
+	vertical-align: middle;
+}
+.bg-danger {
+	padding: 15px;
+}

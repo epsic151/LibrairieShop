@@ -22,15 +22,19 @@ if (!defined('INCLUDE_CHECK')) {
           </tr>
         </thead>
         <tbody>
-          <?php echo $HTMLlayout; ?>
+          <?php
+            if (isset($_SESSION['right']) && $_SESSION['right'] == 1){
+              echo $HTMLlayout_admin;
+            } else {
+              echo $HTMLlayout;
+            }
+           
+          ?>
         </tbody>
       </table>
     </div>
     
-    <?php
-        //  Panier
-        require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/v_cart.php');
-    ?>
-  </div>
-  <?php require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); ?>
-</div>
+  <?php 
+  require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/v_cart.php');
+  require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); 
+  ?>

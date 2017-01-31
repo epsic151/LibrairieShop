@@ -15,9 +15,8 @@ class BookManager {
 
     //INSERT DB FUNCTION
 	public function insert(Book $book) {
-            $q = $this -> _db -> prepare('INSERT INTO t_book (title, overview, author_sex, author_name, author_fname, `year`, price, img_cover, edition, logistic_qnt, FK_genre, creation_date, modif_date, deleted)
-                VALUES(:title, :overview, :author_sex, :author_name, :author_fname, :year, :price, :img_cover, :edition, :logistic_qnt, :FK_genre, :creation_date, :modif_date, :deleted)');
-            print_r($book);
+            $q = $this -> _db -> prepare('INSERT INTO t_book (title, overview, author_sex, author_name, author_fname, `year`, price, img_cover, edition, logistic_qnt, FK_genre, creation_date, deleted)
+                VALUES(:title, :overview, :author_sex, :author_name, :author_fname, :year, :price, :img_cover, :edition, :logistic_qnt, :FK_genre, :creation_date, :deleted)');
             $q -> bindValue(':title', $book -> gettitle());
             $q -> bindValue(':overview', $book -> getoverview());
             $q -> bindValue(':author_sex', $book -> getauthor_sex());
@@ -30,7 +29,6 @@ class BookManager {
             $q -> bindValue(':logistic_qnt', $book -> getlogistic_qnt());
             $q -> bindValue(':FK_genre', $book -> getFK_genre());
             $q -> bindValue(':creation_date', $book -> getcreation_date());
-            $q -> bindValue(':modif_date', $book -> getmodif_date());
             $q -> bindValue(':deleted', $book -> getdeleted());
             if ($q -> execute()) {
                 //execution successfull: return last inserted id
@@ -89,7 +87,7 @@ class BookManager {
 
 	//SELECT item DB FUNCTION
 	public function select_item($id) {
-		$q = $this -> _db -> prepare("SELECT b.id, b.title, b.overview, b.author_sex, b.author_name, b.author_fname, b.`year`, b.price, b.img_cover, b.edition, b.logistic_qnt, b.FK_genre, b.creation_date, b.modif_date, b.deleted, g.name FROM t_book as b INNER JOIN t_genre as g on b.FK_genre = g.id WHERE b.deleted = 0 AND b.id=:id");
+		$q = $this -> _db -> prepare("SELECT b.id, b.title, b.overview, b.author_sex, b.author_name, b.author_fname, b.`year`, b.price, b.img_cover, b.edition, b.logistic_qnt, b.FK_genre, b.creation_date, b.modif_date, b.deleted, g.name FROM t_book as b INNER JOIN t_genre as g on b.FK_genre = g.id WHERE b.id=:id");
 		$q -> bindValue(':id', $id);		
 		$result = $q -> fetch(PDO::FETCH_ASSOC);
 		if ($q -> execute()) {
@@ -135,23 +133,6 @@ class BookManager {
                 
 		return $return;
 	}
-
-    //SOFT DELETE ELEMENT FUNCTION
-    public function soft_delete(Book $book) {
-		//update table deleted attr.
-		$q = $this -> _db -> prepare('UPDATE t_book SET deleted=1 WHERE id=:id)');
-		$q -> bindValue(':id', $book -> getid());
-        if ($q -> execute()) {
-            //execution successfull: return TRUE
-			$return = TRUE;
-		} else {
-            //execution failed: return FALSE
-			$return = FALSE;
-		}
-		return $return;
-	}
-
-	
 
     //setDB
 	public function setDb(PDO $db) {
