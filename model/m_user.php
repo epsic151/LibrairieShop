@@ -12,6 +12,9 @@ class User{
     private $right;
     private $deleted;
     private $password;
+    private $adress;
+    private $npa;
+    private $city;
 
     //Construction
     public function __construct(array $data) {
@@ -38,6 +41,18 @@ class User{
     public function getusername() {
         return $this->username;
     }
+    
+    function getadress() {
+        return $this->adress;
+    }
+
+    function getnpa() {
+        return $this->npa;
+    }
+
+    function getcity() {
+        return $this->city;
+    }
 
     public function getname() {
         return $this->name;
@@ -63,6 +78,8 @@ class User{
         return $this->password;
     }
 
+    
+    
     public function setid($id) {
         $this->id = $id;
     }
@@ -84,14 +101,26 @@ class User{
     }
 
     public function setright($right) {
-        $this->right = $right;
+        $this->right = intval($right);
     }
 
     public function setdeleted($deleted) {
-        $this->deleted = $deleted;
+        $this->deleted = intval($deleted);
     }
 
     public function setpassword($password) {
         $this->password = $password;
+    }
+    
+    function setadress($adress) {
+        $this->adress = $adress;
+    }
+
+    function setnpa($npa) {
+        $this->npa = intval($npa);
+    }
+
+    function setcity($city) {
+        $this->city = $city;
     }
 }

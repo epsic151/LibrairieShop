@@ -19,12 +19,10 @@
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
 
-//Security for views and models
-    define('INCLUDE_CHECK', true);
-    
-    
-    
     session_start();
+
+    //Security for views and models
+    define('INCLUDE_CHECK', true);
     
     // Recuperation de l'ID
     if(isset($_GET['action']) && isset($_GET['id']) && is_numeric($_GET['id']) && is_numeric($_GET['action'])){
@@ -38,6 +36,8 @@
  *  2 => Incrémenter la quantité
  *  3 => Diminuer la quantité
  */
+    
+    
     
 //  Ajouter au panier
     if($action == 0){
@@ -102,8 +102,11 @@
                     array_splice($cart, $key, 1);
                 }
             }
+        }//  Enlever du panier
+    }elseif($action == 4){
+        if(isset($_SESSION['cart'])){
+            unset($_SESSION['cart']);
         }
-        
     }else{
         echo '<h1>Erreur 404</h1>';
     }
@@ -168,13 +171,13 @@
         }
         
 //  Affiche le prix total
-        $output.= '      <span class="list-group-item">
-                    <strong>Total : CHF '.number_format(array_sum($total), 2).'</strong>
-                    </span>
-                    <span class="list-group-item">
-                        <button type="button" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
-                        <button type="button" class="btn btn-primary">Payer</button>
-                    </span>';
+$output.= '      <span id="konami" class="list-group-item">
+            <strong id="price">Total : CHF '.number_format(array_sum($total), 2).'</strong>
+            </span>
+            <span class="list-group-item">
+                <button onclick="trash()" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
+                <a id="payer" href="checkout.php" class="btn btn-primary">Payer</a>
+            </span>';
 
 //  Affiche panier vide
     }else{
@@ -184,10 +187,10 @@
                     <span class="list-group-item">
                     <strong>Total : CHF 00.00</strong>
                     </span>
-                    <span class="list-group-item">
-                        <button type="button" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
-                        <button type="button" class="btn btn-primary">Payer</button>
-                    </span>';
+                    <!--span class="list-group-item">
+                        <button onclick="trash()" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
+                        <a id="payer" href="checkout.php" class="btn btn-primary">Payer</a>
+                    </span-->';
     }
     $output.= '</div>';
     echo $output;

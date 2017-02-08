@@ -38,12 +38,12 @@ if (!defined('INCLUDE_CHECK')) {
         }
         
 //  Affiche le prix total
-        $output.= '      <span class="list-group-item">
-                    <strong>Total : CHF '.number_format(array_sum($total), 2).'</strong>
+        $output.= '      <span id="konami" class="list-group-item">
+                    <strong id="price">Total : CHF '.number_format(array_sum($total), 2).'</strong>
                     </span>
                     <span class="list-group-item">
-                        <button type="button" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
-                        <button type="button" class="btn btn-primary">Payer</button>
+                        <button onclick="trash()" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
+                        <a id="payer" href="checkout.php" class="btn btn-primary">Payer</a>
                     </span>';
 
 //  Affiche panier vide

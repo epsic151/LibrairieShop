@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS t_genre;
 CREATE TABLE t_genre (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
-  creation_date DATETIME NOT NULL DEFAULT NOW() COMMENT 'INSERT datetime',
+  creation_date DATETIME COMMENT 'INSERT datetime',
   deleted INT(1) NOT NULL DEFAULT 0 COMMENT '0=visible / 1=invisible'
 ) ENGINE=InnoDB;
 
@@ -38,20 +38,14 @@ CREATE TABLE t_book (
   FOREIGN KEY (FK_genre) REFERENCES t_genre(id)
 ) ENGINE=InnoDB;
 
-# Structure of the table t_order
 CREATE TABLE t_order (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  order_date DATETIME NOT NULL DEFAULT NOW() COMMENT 'INSERT datetime',
-  user INT(11) NOT NULL,
-  qnt INT (11) NOT NULL,
-  status INT(11) NOT NULL,
-  TVA DECIMAL(11) NOT NULL COMMENT 'en %',
-  total_price DECIMAL(11, 2) NOT NULL COMMENT 'en CHF',
-  creation_date DATETIME COMMENT 'INSERT datetime',
-  delivery_date DATETIME COMMENT 'livraison datetime',
-  FK_book INT(11) NOT NULL,
-  deleted INT(1) NOT NULL DEFAULT 0 COMMENT '0=visible / 1=invisible',
-  FOREIGN KEY (FK_book) REFERENCES t_book(id)
+  order_date datetime COMMENT 'INSERT datetime',
+  user int(11) NOT NULL,
+  status int(11) NOT NULL,
+  total_price decimal(11,2) NOT NULL COMMENT 'en CHF',
+  deleted int(1) NOT NULL DEFAULT '0' COMMENT '0=visible / 1=invisible',
+  bookqnt varchar(512) NOT NULL
 ) ENGINE=InnoDB;
 
 # Structure of the table t_comment
