@@ -6,6 +6,10 @@
     //Processing
         //Models requirements
         require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_book_manager.php');
+		
+		// Include file containing update RSS Feeder function
+		require_once ($_SERVER['DOCUMENT_ROOT']."/fluxRSS/fluxRssUpdate.php");
+		updateRSSfeeder("test1","ETest", "descriptionjjkjjj");
         $BookManager = new BookManager();
 
         //Select all products from DB

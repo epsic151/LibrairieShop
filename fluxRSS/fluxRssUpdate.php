@@ -1,20 +1,35 @@
 <?php
-//Get file:
-//require_once ("/fluxRssUpdate.php");
-// Function update() adds the new inserted book's title and other details in the news:
-function updateRSSfeeder(String $Title, string $author, string $description)
+////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:		fluxRssUpdate.php 
+	#	Auteur:		Raphaël Dufour
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		
+	#
+	#################################################################
+	#
+	#	Function update() adds the new inserted book's title and other details in the news:
+	#
+	#################################################################
+
+function updateRSSfeeder($title,$author,$description)
 {
 	// Open xml file to insert new entry:
 	if (file_exists('libraryFlux.xml'))
 	{
 		// Use DOMdocument parser:
 		$xmlRss = new DOMDocument();
-		$xmlRss->load("libraryFlux.xml");
+		$xmlRss->load('libraryFlux.xml');
 
 		$nodeItem = $xmlRss->createElement("item");
-		$nodeTitle = $xmlRss->createTextNode($title);
-		$nodeAuth = xmlRss>createTextNode($author);
-		$nodeDescr = $xmlRss->createTextNode($description);
+		$nodeTitle = $xmlRss->createTextNode((string)$title);
+		$nodeAuth = xmlRss>createTextNode((string)$author);
+		$nodeDescr = $xmlRss->createTextNode((string)$description);
 		$nodeItem->appendChild($nodeTitle);
 		$nodeItem->appendChild($nodeAuth);
 		$nodeItem->appendChild($nodeDescr);
@@ -27,10 +42,8 @@ function updateRSSfeeder(String $Title, string $author, string $description)
 			$lastItem = $xmlRss->getElementsByTagName("item")->item($xmlRss->getElementsByTagName("item")->length - 1);
 			$xmlRss->removeChild($lastItem);
 			}	
-
-		}
 		$xmlRss->save('libraryFlux.xml');
-		
+		}
 
 	}
 ?>
