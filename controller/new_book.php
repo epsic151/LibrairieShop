@@ -2,18 +2,18 @@
 	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
 	#################################################################
 	#
-	#	Programme:		testLibraryShop.php	!!! Essai de formulaire !!!
+	#	Programme:		new_book.php
 	#	Auteur:		Raphaël Dufour
 	#
 	#################################################################
 	#
 	# 	Date :		Decembre 2016
 	#	Version :		1.0
-	#	Révisions :		1.1 - David Miranda - TG-34
+	#	Révisions :		1.1 - David Miranda
 	#
 	#################################################################
 	#
-	#	Get administration adding book informations
+	#	File called to add a book when forms submitted, call updateRSSfeeder if record has succeed.
 	#
 	#################################################################
 	

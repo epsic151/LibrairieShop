@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:		modif_book.php
+	#	Auteur:		David Miranda
+	#
+	#################################################################
+	#
+	# 	Date :		Decembre 2016
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda - TG-34
+	#
+	#################################################################
+	#
+	#	Allow admin to change books attribute, properties.
+	#
+	#################################################################
 	//Security check - Logged in 
 	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
 	//Security check - Admin 

@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:		books.php
+	#	Auteur:		David Miranda & Rapahël Dufour
+	#
+	#################################################################
+	#
+	# 	Date :		Decembre 2016
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda 
+	#
+	#################################################################
+	#
+	#	Start page of the site, construct views select all books in database and add them to the table view. 
+	#
+	#################################################################
     session_start();
     //Security for views and models
     define('INCLUDE_CHECK', true);
@@ -6,10 +23,7 @@
     //Processing
         //Models requirements
         require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_book_manager.php');
-		
-		// Include file containing update RSS Feeder function
-		require_once ($_SERVER['DOCUMENT_ROOT']."/fluxRSS/fluxRssUpdate.php");
-		updateRSSfeeder("test1","ETest", "descriptionjjkjjj");
+
         $BookManager = new BookManager();
 
         //Select all products from DB

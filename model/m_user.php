@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:		m_user.php
+	#	Auteur:		David Miranda & Raphaël Dufour
+	#
+	#################################################################
+	#
+	# 	Date :		Decembre 2016
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda - 
+	#
+	#################################################################
+	#
+	#	Manage users in database: set password, set rights, insert etc.
+	#
+	#################################################################
 if (!defined('INCLUDE_CHECK')) {
     http_response_code(404); die;
 }
