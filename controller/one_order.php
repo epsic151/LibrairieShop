@@ -63,7 +63,7 @@
                 // Config Police
                 $this->SetFont('Arial','',12);
                 // Adresse shop
-                $this->Cell(50,5,'LibrarieShop SA',0,1,'L');
+                $this->Cell(50,5,'LibrairieShop SA',0,1,'L');
                 $this->Cell(50,5,'Rue Projet 151',0,1,'L');
                 $this->Cell(50,5,'1007',0,1,'L');
                 $this->Cell(50,5,'Lausanne',0,1,'L');
