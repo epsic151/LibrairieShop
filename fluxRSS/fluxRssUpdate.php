@@ -31,15 +31,17 @@ function updateRSSfeeder($title,$author,$description)
 		$subnodetitle = $xmlRss->createElement("title");
 		$subnodeauthor = $xmlRss->createElement("author");
 		$subnodedescr = $xmlRss->createElement("description");
-		$nodeTitle = $xmlRss->createTextNode((string)$title);
-		$nodeAuth = $xmlRss->createTextNode((string)$author);
-		$nodeDescr = $xmlRss->createTextNode((string)$description);
-		$subnodetitle->appendChild($nodeTitle);
-		$subnodeauthor->appendChild($nodeAuth);
-		$subnodedescr->appendChild($nodeDescr);
+		$subnodelink = $xmlRss->createElement("link");
+
+		$subnodetitle->appendChild($xmlRss->createTextNode((string)$title));
+		$subnodeauthor->appendChild($xmlRss->createTextNode((string)$author));
+		$subnodedescr->appendChild($xmlRss->createTextNode((string)$description));
+		$subnodelink->appendChild($xmlRss->createTextNode("127.0.0.1/LibraryShop/index.php"));
+		
 		$nodeItem->appendChild($subnodetitle);
 		$nodeItem->appendChild($subnodeauthor);
 		$nodeItem->appendChild($subnodedescr);
+		$nodeItem->appendChild($subnodelink);
 		// Get the first element item to insert the new one before:
 		$firstItem = $xmlRss->getElementsByTagName("item")->item(0);
 		
