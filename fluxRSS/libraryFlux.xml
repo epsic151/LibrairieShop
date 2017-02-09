@@ -5,16 +5,13 @@
   <title>Library Shop News</title>
   <link>127.0.0.1/LibraryShop/index.php</link>
   <description>Buy books like geeks do</description>
-  <item><title>Test</title><author>Moi</author><description>SUPER bouquin, Fantastic!</description></item><item><title>Test</title><author>Moi</author><description>SUPER bouquin, Fantastic!</description></item><item><title>Boustann</title><author>Yamnahakki</author><description>SUPER bouquin, Fantastic!</description></item><item><title>Boustann</title><author>Yamnahakki</author><description>SUPER bouquin, Fantastic!</description></item><item><title>Boustann</title><author>Yamnahakki</author><description>SUPER bouquin, Fantastic!</description></item><item><title>test1</title><author>ETest</author><description>descriptionjjkjjj</description></item><item><title>test1</title><author>ETest</author><description>descriptionjjkjjj</description></item><item><title>test1</title><author>ETest</author><description>descriptionjjkjjj</description></item><item>
+  <copyright>&amp;copy;LibrairieShop </copyright>
+  <webmaster>realrael@urbanet.ch</webmaster>
+  <item><title>rtruiui</title><author>srzsrtzsrtz</author><description>SUPER bouquin, Fantastic!</description></item><item>
     <title>TPA</title>
-    <link>127.0.0.1/LibraryShop/newspage.html</link>
+	<author>Moi</author>
     <description>Travail Personnel d'Approfondissement</description>
 </item>
-  <item>
-    <title>Asus Z170</title>
-    <link>http://www.w3schools.com/xml</link>
-    <description>New XML tutorial on W3Schools</description>
-  </item>
 </channel>
 
 </rss>

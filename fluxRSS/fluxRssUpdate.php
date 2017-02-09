@@ -24,6 +24,7 @@ function updateRSSfeeder($title,$author,$description)
 	{
 		// Use DOMdocument parser:
 		$xmlRss = new DOMDocument();
+		$xmlRss->formatOutput = true;
 		$xmlRss->load($_SERVER['DOCUMENT_ROOT']."/fluxRSS/libraryFlux.xml");
 
 		$nodeItem = $xmlRss->createElement("item");

@@ -52,6 +52,7 @@
 		
 		$message = null;
 		$imageuploaded = $_FILES['name'] == null;
+		$new_file_name = "";
 		//upload the file if any files are beeing uploaded
 		if ($imageuploaded == 0){
 			//set ini file_size preference + other preferences
