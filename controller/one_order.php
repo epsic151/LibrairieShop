@@ -165,7 +165,7 @@
                 $this->Cell(array_sum($w),0,'','T');
                 
                 $this->Ln(10);
-                $this->Cell(30,5,utf8_decode('Librarie Shop vous remercie pour votre commande.'),0,1,'L');
+                $this->Cell(30,5,utf8_decode('LibrairieShop vous remercie pour votre commande.'),0,1,'L');
             }
         }
 
