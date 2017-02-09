@@ -50,6 +50,7 @@
 		//Reduce array to one instead of multi array --> on multiple upload not possible!
 		$_FILES = $_FILES['img_cover'];
 		$message = null;
+		echo "file name: ".$_FILES['name']."</br>";
 		$imageuploaded = $_FILES['name'] == null;
 		//upload the file if any files are beeing uploaded
 		if ($imageuploaded == 0){
@@ -58,6 +59,7 @@
 			$authorized_types = array('image/png', 'image/jpeg');
 			$upload_dir = $_SERVER['DOCUMENT_ROOT']."images/books/";
 			$new_file_name = date('U').'.'.pathinfo($_FILES['name'], PATHINFO_EXTENSION);
+			echo "NEW file name: ".$new_file_name."</br>";
 
 			//Error Handling --> Source: http://php.net/manual/en/features.file-upload.errors.php
 			switch ($_FILES['error']) {

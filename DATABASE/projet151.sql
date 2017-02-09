@@ -1,6 +1,7 @@
 # Database           projet151
 # Username           projet151
 # Password           projet151
+CREATE DATABASE IF NOT EXISTS projet151;
 USE projet151;
 
 # Deleting before creating
