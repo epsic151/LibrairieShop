@@ -22,11 +22,9 @@ function updateRSSfeeder($title,$author,$description)
 	// Open xml file to insert new entry:
 	if (file_exists($_SERVER['DOCUMENT_ROOT']."/fluxRSS/libraryFlux.xml"))
 	{
-		echo "<p>file exists.</br><p>";
 		// Use DOMdocument parser:
 		$xmlRss = new DOMDocument();
 		$xmlRss->load($_SERVER['DOCUMENT_ROOT']."/fluxRSS/libraryFlux.xml");
-		echo $xmlRss->saveXML();
 
 		$nodeItem = $xmlRss->createElement("item");
 		$subnodetitle = $xmlRss->createElement("title");
@@ -43,7 +41,6 @@ function updateRSSfeeder($title,$author,$description)
 		$nodeItem->appendChild($subnodedescr);
 		// Get the first element item to insert the new one before:
 		$firstItem = $xmlRss->getElementsByTagName("item")->item(0);
-		echo "<p>Number of elements:".$xmlRss->getElementsByTagName("item")->length."</br><p>";
 		
 		// If more than 10 item, remove last:
 		if ($xmlRss->getElementsByTagName("item")->length == 10 )
@@ -51,7 +48,9 @@ function updateRSSfeeder($title,$author,$description)
 			$lastItem = $xmlRss->getElementsByTagName("item")->item($xmlRss->getElementsByTagName("item")->length - 1);
 			$xmlRss->removeChild($lastItem);
 			}
-		$firstItem->appendChild($nodeItem);
+		// Insert the new item at first place:
+		$firstItem->parentNode->insertBefore($nodeItem, $xmlRss->getElementsByTagName("item")->item(0));
+		// Save new file:
 		$xmlRss->save($_SERVER['DOCUMENT_ROOT']."/fluxRSS/libraryFlux.xml");
 		}
 
