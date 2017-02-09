@@ -49,11 +49,8 @@
 		//Image cover upload
 		//Reduce array to one instead of multi array --> on multiple upload not possible!
 		$_FILES = $_FILES['img_cover'];
-		$message = null;
-		print_r($_FILES);
 		
-		echo "Folder of temporary downloads, adress: ".$_FILES['tmp_name']."</br>";
-		echo "File: ".$_FILES['name']."</br>";
+		$message = null;
 		$imageuploaded = $_FILES['name'] == null;
 		//upload the file if any files are beeing uploaded
 		if ($imageuploaded == 0){

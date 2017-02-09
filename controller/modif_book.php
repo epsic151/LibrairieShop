@@ -50,7 +50,7 @@
 			//set ini file_size preference + other preferences
 			ini_set('upload_max_filesize', '10M');
 			$authorized_types = array('image/png', 'image/jpeg');
-			$upload_dir = $_SERVER['DOCUMENT_ROOT']."images/books/";
+			$upload_dir = $_SERVER['DOCUMENT_ROOT']."/images/books/";
 			$new_file_name = $_GET['book'].'_'.date('U').'.'.pathinfo($_FILES['name'], PATHINFO_EXTENSION);
 
 			//Error Handling --> Source: http://php.net/manual/en/features.file-upload.errors.php
@@ -128,7 +128,7 @@
 	}
 
 	//HTML dynamic meta data
-    $__title = 'Ajouter un livre';
+    $__title = 'Modifier un livre';
 
 	//View construction
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/head.php');
