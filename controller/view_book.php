@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:	view_book.php
+	#	Auteur:		Miguel Jalube & Raphaël Dufour & David Miranda
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda
+	#
+	#################################################################
+	#
+	#	Create first page view
+	#
+	#################################################################
     session_start();
     //Security for views and models
     define('INCLUDE_CHECK', true);

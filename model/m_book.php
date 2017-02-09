@@ -1,4 +1,22 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:	m_book.php
+	#	Auteur:		David Miranda
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda
+	#
+	#################################################################
+	#
+	#	book object: used to manage book data in the site without need of database.
+	#				 Load data first from database and update them if necessary.
+	#
+	#################################################################
 if (!defined('INCLUDE_CHECK')) {
     http_response_code(404); die;
 }

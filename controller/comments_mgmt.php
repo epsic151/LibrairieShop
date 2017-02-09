@@ -1,4 +1,22 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:	comments_mgmt.php
+	#	Auteur:		Miguel Jalube
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda
+	#
+	#################################################################
+	#
+	#	Manage comments.
+	#
+	#################################################################
+	
 	//Security check - Logged in 
 	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
 	//Security check - Admin 

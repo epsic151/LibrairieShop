@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:		m_comment.php
+	#	Auteur:		David Miranda
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda
+	#
+	#################################################################
+	#
+	#	Comments added by readers and recorded in comment database with FK book.
+	#
+	#################################################################
 if (!defined('INCLUDE_CHECK')) {
     http_response_code(404); die;
 }

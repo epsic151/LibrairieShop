@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:	m_order_manager.php
+	#	Auteur:		Miguel Jalube
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda
+	#
+	#################################################################
+	#
+	#	Manage user's order: add, update. Create pdf bill.
+	#
+	#################################################################
 if (!defined('INCLUDE_CHECK')) {
     http_response_code(404); die;
 }
@@ -169,6 +186,12 @@ class OrderManager {
     //setDB
 	public function setDb(PDO $db) {
 		$this -> _db = $db;
+	}
+	
+	//Create a pdf printable with all orders:
+	public function createPDForder() {
+		// Implement here:
+		// get all data of user's order and make a pdf....
 	}
 }
 

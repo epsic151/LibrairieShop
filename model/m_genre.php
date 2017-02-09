@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:	m_genre.php
+	#	Auteur:		Miguel Jalube
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - David Miranda
+	#
+	#################################################################
+	#
+	#	Genre object.
+	#
+	#################################################################
 if (!defined('INCLUDE_CHECK')) {
     http_response_code(404); die;
 }
@@ -41,16 +58,16 @@ class Genre {
     }
 
 	//Sets
-	public function seid($id) {
+	public function setid($id) {
         $this -> _id = $id;
     }
-    public function sename($name) {
+    public function setname($name) {
         $this -> _name = $name;
     }
-    public function secreation_date($creation_date) {
+    public function setcreation_date($creation_date) {
         $this -> _creation_date = date("Y-m-d H:i:s");
     }
-    public function sedeleted($deleted) {
+    public function setdeleted($deleted) {
         $this -> _deleted = $deleted;
     }
 }

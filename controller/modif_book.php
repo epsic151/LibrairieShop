@@ -2,7 +2,7 @@
 	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
 	#################################################################
 	#
-	#	Programme:		modif_book.php
+	#	Programme:	modif_book.php
 	#	Auteur:		David Miranda
 	#
 	#################################################################
@@ -16,6 +16,7 @@
 	#	Allow admin to change books attribute, properties.
 	#
 	#################################################################
+	
 	//Security check - Logged in 
 	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
 	//Security check - Admin 

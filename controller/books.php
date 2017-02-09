@@ -2,8 +2,8 @@
 	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
 	#################################################################
 	#
-	#	Programme:		books.php
-	#	Auteur:		David Miranda & Rapahël Dufour
+	#	Programme:	books.php
+	#	Auteur:		David Miranda & Rapahël Dufour & Miguel Jalube & Patrick Hervieux
 	#
 	#################################################################
 	#
@@ -80,9 +80,7 @@
 
     //HTML dynamic meta data
     $__title = 'Livres';
-    
-    //  Request for cart products
-    //session_start();
+
     
     //  transforme $_SESSION['cart'] en tableau s'il existe
     if(isset($_SESSION['cart'])){

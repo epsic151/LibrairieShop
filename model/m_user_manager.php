@@ -1,4 +1,21 @@
 <?php
+	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
+	#################################################################
+	#
+	#	Programme:	m_user_manager.php
+	#	Auteur:		Miguel Jalube
+	#
+	#################################################################
+	#
+	# 	Date :		janvier 2017
+	#	Version :		1.0
+	#	Révisions :		1.1 - Dufour Raphaël
+	#
+	#################################################################
+	#
+	#	User manager: add, update or (soft) delete users.
+	#
+	#################################################################
 if (!defined('INCLUDE_CHECK')) {
     http_response_code(404); die;
 }
@@ -198,7 +215,6 @@ class UserManager {
 		return $return;
 	}
     
-    //SOFT DELETE ELEMENT FUNCTION
     public function recover(User $user) {
 		//update table deleted attr.
 		$q = $this -> _odbc -> prepare('UPDATE user SET `deleted` = 0 WHERE `id` = :id');
@@ -212,8 +228,7 @@ class UserManager {
 		}
 		return $return;
 	}
-        
-    //SOFT DELETE ELEMENT FUNCTION
+
     public function grant_admin(User $user) {
 		//update table deleted attr.
 		$q = $this -> _odbc -> prepare('UPDATE user SET `right`=1 WHERE `id`=:id');
@@ -227,8 +242,7 @@ class UserManager {
 		}
 		return $return;
 	}
-        
-    //SOFT DELETE ELEMENT FUNCTION
+
     public function grant_user(User $user) {
         try{
 		//update table deleted attr.
