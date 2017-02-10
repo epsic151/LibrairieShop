@@ -58,7 +58,7 @@
 
                 //Layout for clients
                 $HTMLlayout .= "<tr>
-                    <td><img src=\"$book[8]\" style=\"max-width: 180px;\" /></td>
+                    <td><img src=\"../images/books/$book[8]\" style=\"max-width: 180px;\" /></td>
                     <td>".htmlentities($book[1])."</td>
                     <td>".htmlentities($book[11])."</td>
                     <td>".htmlentities($book[2])."</td>
